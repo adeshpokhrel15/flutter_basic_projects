@@ -37,8 +37,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
         if (output.endsWith(".0")) {
           output = output.substring(0, output.length - 2);
         }
-        input = output;
-        hideInput = true;
+        // input = output;
       }
     } else {
       input = input + value;
@@ -49,6 +48,11 @@ class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        title: const Text('Calculator'),
+        centerTitle: true,
+      ),
       body: Column(children: [
         Expanded(
             child: Container(
@@ -60,7 +64,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                hideInput ? '' : input,
+                input,
                 style: const TextStyle(
                     fontSize: 48,
                     color: Colors.black,
